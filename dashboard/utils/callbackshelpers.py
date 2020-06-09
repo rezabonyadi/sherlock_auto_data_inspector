@@ -41,7 +41,11 @@ def variables_description_visual(dataframe):
     show_graph = True
     if dataframe.shape[0]>200:
         show_graph = False
+        return reports
+    total_variables = dataframe.shape[0]
     for r in range(dataframe.shape[0]):
+        print('\r', ''.join(['Generating component for variable ', str(r), '/', str(total_variables)]), end='')
+
         d = dataframe.iloc[r, :]
         h = generate_component(d, show_hist=show_graph)
         reports.append(h)

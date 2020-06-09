@@ -24,10 +24,12 @@ class SherlockTabularVariablesDescription(SherlockTabularBase):
         do_bootstrap = (self.data.number_variables < self.settings['max_variables_to_bootstrap'])
         if not do_bootstrap:
             self.messages.append('Too many variables to bootstrap. Make max_variables_to_bootstrap larger.')
-
+        i = 0
+        total_variables = columns.shape[0]
         for c in columns:
             # svh.progress_show(0, columns.shape[0], np.where(columns==c)[0][0])
-
+            print('\r', ''.join(['This is variable ', str(i), '/', str(total_variables), ', named: ', c]), end='')
+            i += 1
             if sch.is_numeric(df[c]):
                 d, _ = sch.get_variable_properties(df, c, do_bootstrap)
                 if description_numerics.empty:
