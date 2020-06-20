@@ -112,6 +112,13 @@ def overlap_distribution_theoretical(d1, d2):
     dist1 = d1.copy()
     dist2 = d2.copy()
 
+    if (np.std(dist1)==0) or (np.std(dist2)==0):
+        if (np.std(dist2)==0) and (np.std(dist2)==0):
+            if np.mean(dist2) == np.mean(dist1):
+                return 1.0
+            else:
+                return 0.0
+
     dist1 /= np.std(dist1)
     dist2 /= np.std(dist2)
 
@@ -120,13 +127,6 @@ def overlap_distribution_theoretical(d1, d2):
         dist1 = dist2
         dist2 = tmp
 
-    # if (np.std(dist1)==0) or ((np.std(dist2)==0)):
-    #     if (np.std(dist2)==0) and (np.std(dist2)==0):
-    #         if np.mean(dist2) == np.mean(dist1):
-    #             return 1.0
-    #         else:
-    #             return 0.0
-    #
 
     m1 = np.mean(dist1)
     m2 = np.mean(dist2)

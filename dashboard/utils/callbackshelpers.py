@@ -78,7 +78,6 @@ def generate_component(d, show_hist=True):
                    className="row",
                    style={'width': '90%', 'margin-left': '5%', 'margin-top': '1%'})
 
-
     alert = html.Div(children=[row, html.Hr()])
 
     return alert
