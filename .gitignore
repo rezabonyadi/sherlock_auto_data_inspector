@@ -1,0 +1,6 @@
+
+*.xml
+*.iml
+*.pyc
+dashboard/utils/__pycache__/callbackshelpers.cpython-37.pyc
+sherlock/sherlocktabular/sherlockexploration/__pycache__/_sherlockvariablesdescriptions.cpython-37.pyc
